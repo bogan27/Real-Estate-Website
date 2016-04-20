@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src = "js/updateZestimateApp.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/update-zestimate.css"/>
+  <link rel="stylesheet" href="css/app.css"/>
+
+  <title>Update Zestimate</title>
+
+</head>
+
+<body ng-app="updateZestimateApp" ng-controller="zestimateCtrl">
+  <div class="container">
+    <navigation></navigation>
+    <div ng-show="!showDetails">
+      <form ng-submit="submit()" role="form" class="halfpage centered form-inline">
+        <div class="form-group">
+          <label for="address">Address:</label>
+          <input type="text" class="form-control" id="address" ng-model="addressToSearch" placeholder="Enter Street Address">
+        </div>
+        <div class="form-group" style="margin-left: 10px;">
+          <label for="zip">Zipcode:</label>
+          <input type="text" class="form-control" id="zip" ng-model="zipcodeToSearch" placeholder="Enter Zipcode">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <br>
+      <div ng-if="properties" class="resultsList">
+        <div ng-repeat="property in properties">
+          <property-address></property-address>
+        </div>
+      </div>
+    </div>
+    <div ng-show="showDetails" class="details">
+  <update-zestimate></update-zestimate>
+    </div>
+    <div ng-show="showZestimate" class="details">
+      <zestimate-info></zestimate-info>
+    </div>
+    <div ng-show="searchError && !showZestimate" class="errorMsg">
+      {{ errorMessage }}
+    </div>
+  </div>
+</body>
+</html>

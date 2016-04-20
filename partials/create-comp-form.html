@@ -1,0 +1,40 @@
+<form ng-submit="addComp()" role="form" class="centered form" style="padding:20px;">
+
+  <div class="form-group row">
+    <label for="address1" class="col-sm-2 form-control-label">Address 1:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="address1" placeholder="{{ activeProperty.streetAddress }}" readonly>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="zip1" class="col-sm-2 form-control-label">Zipcode 1:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="zip1" placeholder="{{ activeProperty.zipCode }}" readonly>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="address2" class="col-sm-2 form-control-label">Address 2:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="address2" ng-model="compAddress" placeholder="Enter Address Of Comp...">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="zip2" class="col-sm-2 form-control-label">Zipcode 2:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="zip2" ng-model="compZip" placeholder="Enter Zipcode Of Comp...">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="compScore" class="col-sm-2 form-control-label">Comp Score (0 is best, 100 is worst):</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="compScore" ng-model="compScore" placeholder="Enter Rating Of Comparability...">
+    </div>
+  </div>
+      <a href="#" ng-click="resetActiveProperty();" class="btn btn-primary btn-large button" style="margin: 10px;"><i class="icon-white icon-chevron-left"></i> Return To Search</a>
+  <button type="submit" class="btn btn-default" style="margin: 10px;">Submit</button>
+
+</form>

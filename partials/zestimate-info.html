@@ -1,0 +1,51 @@
+<table class="table detailsTable">
+
+  <tr ng-show="zestimate.zestimate">
+  <td class="detailKey">Estimated Property Value:</td>
+  <td class="detailValue">{{ zestimate.zestimate | currency }}
+  </td>
+  </tr>
+
+  <tr ng-show="zestimate">
+  <td class="detailKey">Last Updated:</td>
+  <td class="detailValue">{{ zestimate.lastUpdated }}</td>
+  </tr>
+
+  <tr ng-show="zestimate">
+  <td class="detailKey">Thirty Day Change:</td>
+  <td class="detailValue">{{ zestimate.thirtyDayChange | currency }}</td>
+  </tr>
+
+  <tr ng-show="zestimate">
+  <td class="detailKey">Top Range of Zestimate:</td>
+  <td class="detailValue">{{ zestimate.valuationHigh | currency }}</td>
+  </tr>
+
+  <tr ng-show="zestimate">
+  <td class="detailKey">Low Range of Zestimate:</td>
+  <td class="detailValue">{{ zestimate.valuationLow | currency }}</td>
+  </tr>
+
+  <tr ng-show="zestimate">
+  <td class="detailKey">Rent Zestimate:</td>
+  <td class="detailValue">{{ zestimate.rentZestimate | currency }}</td>
+  </tr>
+
+  <tr ng-show="zestimate">
+  <td class="detailKey">Thirty Day Change in Rent Zestimate:</td>
+  <td class="detailValue">{{ zestimate.rentThirtyDayChange | currency }}</td>
+  </tr>
+
+  <tr ng-show="zestimate">
+  <td class="detailKey">Top of Rent Range:</td>
+  <td class="detailValue">{{ zestimate.minRent | currency }}</td>
+  </tr>
+
+  <tr ng-show="zestimate">
+  <td class="detailKey">Bottom of Rent Range:</td>
+  <td class="detailValue">{{ zestimate.maxRent | currency }}</td>
+  </tr>
+
+<tr></tr>
+
+</table>
