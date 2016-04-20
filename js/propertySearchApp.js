@@ -26,7 +26,7 @@ angular.module('propertySearchApp', [])
         $scope.properties = data;
         if($scope.properties.length < 1){
           $scope.searchError = true;
-          $scope.errorMessage = "Sorry, you're search did not return any results.";
+          $scope.errorMessage = "Sorry, your search did not return any results.";
         }
     })
     .error(function(){
