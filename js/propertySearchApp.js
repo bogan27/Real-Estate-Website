@@ -45,10 +45,14 @@ angular.module('propertySearchApp', [])
   $scope.makeAddress = function(property){
     var address = "";
     if(!angular.isUndefined(property.streetAddress)){
-    address = address.concat(" ").concat(property.city).concat(", ").concat(property.state).concat(" ").concat(property.zipCode);
+    address = property.streetAddress.concat(", ").concat(property.city).concat(", ").concat(property.state).concat(" ").concat(property.zipCode);
     console.log("Built address: " + address);
   }
     return address;
+  }
+
+  $scope.formatUseCode = function(useCode){
+    return useCode.replace(/([A-Z]+)/g, " $1").replace(/([A-Z][a-z])/g, " $1");
   }
 
   var getDemographics = function(){
@@ -95,7 +99,7 @@ angular.module('propertySearchApp', [])
   }
 
   $scope.toggleDemographics = function(){
-    $scope.showDemographics = !$scope.showZestimate;
+    $scope.showDemographics = !$scope.showDemographics;
   }
 }])
 

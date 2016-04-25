@@ -1,4 +1,4 @@
-<table class="table detailsTable pre-scrollable">
+<table class="table table-striped detailsTable">
 <caption class="caption"><b><u><em style="font-size:16px;">Property Details</em></u></b></caption>
 <!-- <tr>
   <th style="text-align: center;">Property Details</th>
@@ -11,6 +11,11 @@
 <tr ng-show="activeProperty.yearBuilt">
 <td class="detailKey">Year Built:</td>
 <td class="detailValue">{{ activeProperty.yearBuilt }}</td>
+</tr>
+
+<tr ng-show="activeProperty.useCode">
+<td class="detailKey">Property Type:</td>
+<td class="detailValue">{{ formatUseCode(activeProperty.useCode) }}</td>
 </tr>
 
 <tr ng-show="activeProperty.finishedSqFt">
