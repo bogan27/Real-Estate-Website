@@ -1,6 +1,6 @@
 body {
   /* This image will be displayed fullscreen */
-background-image: url("../images/real_estate_background_1.jpg");
+background-image: url("../images/data.jpg");
 /* Ensure the html element always takes up the full height of the browser window */
 min-height:100%;
 
@@ -20,7 +20,7 @@ background-size: cover;
   margin-left: 22%;
   background-color: #1f1f2e;
   border-radius: 20px;
-  opacity: 0.5;
+  opacity: 0.8;
   padding-top: 10px;
   padding-bottom: 10px;
   color: white;

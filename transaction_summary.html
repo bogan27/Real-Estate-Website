@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/transaction-summary.css"/>
+  <link rel="stylesheet" href="css/app.css"/>
+
+  <script src = "js/transactionSummarizer.js"></script>
+  <script src = "js/zerofill.js"></script>
+  <script src = "js/propertySearchApp.js"></script>
+
+  <title>Transaction Summaries</title>
+
+</head>
+
+<body ng-app="transactionSummarizerApp" ng-controller="transactionSummaryCtrl">
+  <div class="container">
+    <navigation></navigation>
+    <div>
+      <form ng-submit="getTransactionSumary()" role="form" class="halfpage centered form-inline">
+        <div class="form-group">
+          <label for="tableName">Table:</label>
+          <select name="tableName" id="tableName" ng-model="tableName">
+            <option value="Addresses">Addresses</option>
+            <option value="Comparables">Comparables</option>
+            <option value="DemoGeo">DemoGeo</option>
+            <option value="Demographics">Demographics</option>
+            <option value="Neighborhoods">Neighborhoods</option>
+            <option value="Properties"> Properties</option>
+            <option value="PropertyDetails">PropertyDetails</option>
+            <option value="TaxAssessments">TaxAssessments</option>
+            <option value="Zestimates">Zestimates</option>
+            <option value="ZipGeo">ZipGeo</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="transactionType">Transaction Type:</label>
+          <select name="transactionType" id="transactionType" ng-model="transactionType">
+            <option value="INSERT">Inserts</option>
+            <option value="UPDATE">Updates</option>
+            <option value="DELETE">Deletes</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-left: 10px;">
+          <label for="days"># of Days</label>
+          <input type="text" class="form-control" id="days" ng-model="days" placeholder="Days of History">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <br>
+      <div ng-if="showSummaries" class="resultsList">
+        <div ng-repeat="summary in summaries">
+          <table class="table table-striped detailsTable">
+          <caption class="caption"><b><u><em style="font-size:16px;">Transaction Summary</em></u></b></caption>
+            <tr>
+              <td><b>Table Name</b></td>
+              <td>{{summary.table}}</td>
+            </tr>
+            <tr>
+              <td><b>Transaction Type</b></td>
+              <td>{{summary.transactionType}}</td>
+            </tr>
+            <tr>
+              <td><b>Date</b></td>
+              <td>{{summary.statisticDate}}</td>
+            </tr>
+            <tr>
+              <td><b>Count</b></td>
+              <td>{{summary.transactionCount}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div ng-show="searchError" class="errorMsg">
+      {{ errorMessage }}
+    </div>
+  </div>
+</body>
+</html>
