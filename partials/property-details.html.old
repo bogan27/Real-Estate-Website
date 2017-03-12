@@ -1,0 +1,122 @@
+<table class="table table-striped detailsTable">
+<caption class="caption"><b><u><em style="font-size:16px;">Property Details</em></u></b></caption>
+<!-- <tr>
+  <th style="text-align: center;">Property Details</th>
+</tr> -->
+<tr>
+<td class="detailKey">Address:</td>
+<td class="detailValue">{{ makeAddress(activeProperty) }}</td>
+</tr>
+
+<tr ng-show="activeProperty.yearBuilt">
+<td class="detailKey">Year Built:</td>
+<td class="detailValue">{{ activeProperty.yearBuilt }}</td>
+</tr>
+
+<tr ng-show="activeProperty.useCode">
+<td class="detailKey">Property Type:</td>
+<td class="detailValue">{{ formatUseCode(activeProperty.useCode) }}</td>
+</tr>
+
+<tr ng-show="activeProperty.finishedSqFt">
+<td class="detailKey">Finished Square Feet:</td>
+<td class="detailValue">{{ activeProperty.finishedSqFt | number }}</td>
+</tr>
+
+<tr ng-show="activeProperty.bedroomCount">
+<td class="detailKey">Bedroom Count:</td>
+<td class="detailValue">{{ activeProperty.bedroomCount | number }}</td>
+</tr>
+
+<tr ng-show="activeProperty.bathroomCount">
+<td class="detailKey">Bathroom Count:</td>
+<td class="detailValue">{{ activeProperty.bathroomCount | number }}</td>
+</tr>
+
+<tr ng-show="activeProperty.lastSoldDate">
+<td class="detailKey">Last Sold Date:</td>
+<td class="detailValue">{{ activeProperty.lastSoldDate }}</td>
+</tr>
+
+<tr ng-show="activeProperty.lastSoldPrice">
+<td class="detailKey">Last Sold Price:</td>
+<td class="detailValue">{{ activeProperty.lastSoldPrice | currency }}</td>
+</tr>
+
+<tr ng-show="activeProperty.zestimate.zestimate">
+<td class="detailKey">Estimated Property Value:</td>
+<td class="detailValue">{{ activeProperty.zestimate.zestimate | currency }}
+  <a href=# ng-show="!showZestimate" ng-click="toggleZestimate();" style="float:right">Show Zestimate Details</a>
+  <a href=# ng-show="showZestimate" ng-click="toggleZestimate();" style="float:right">Hide Zestimate Details</a>
+</td>
+</tr>
+
+<tr ng-show="showZestimate">
+<td class="detailKey">Last Updated:</td>
+<td class="detailValue">{{ activeProperty.lastUpdated }}</td>
+</tr>
+
+<tr ng-show="showZestimate">
+<td class="detailKey">Thirty Day Change:</td>
+<td class="detailValue">{{ activeProperty.thirtyDayChange | currency }}</td>
+</tr>
+
+<tr ng-show="showZestimate">
+<td class="detailKey">Top Range of Zestimate:</td>
+<td class="detailValue">{{ activeProperty.valuationHigh | currency }}</td>
+</tr>
+
+<tr ng-show="showZestimate">
+<td class="detailKey">Low Range of Zestimate:</td>
+<td class="detailValue">{{ activeProperty.valuationLow | currency }}</td>
+</tr>
+
+<tr ng-show="showRent">
+<td class="detailKey">Rent Zestimate:</td>
+<td class="detailValue">{{ activeProperty.rentZestimate | currency }}</td>
+</tr>
+
+<tr ng-show="showRent">
+<td class="detailKey">Thirty Day Change in Rent Zestimate:</td>
+<td class="detailValue">{{ activeProperty.rentThirtyDayChange | currency }}</td>
+</tr>
+
+<tr ng-show="showRent">
+<td class="detailKey">Top of Rent Range:</td>
+<td class="detailValue">{{ activeProperty.minRent | currency }}</td>
+</tr>
+
+<tr ng-show="showRent">
+<td class="detailKey">Bottom of Rent Range:</td>
+<td class="detailValue">{{ activeProperty.maxRent | currency }}</td>
+</tr>
+
+<tr ng-show="demographics">
+<td class="detailKey">Population of Property Zipcode:</td>
+<td class="detailValue">{{ demographics.pop | number }}
+  <a href=# ng-show="!showDemographics" ng-click="toggleDemographics();" style="float:right">Show Demographic Details</a>
+  <a href=# ng-show="showDemographics" ng-click="toggleDemographics();" style="float:right">Hide Demographic Details</a>
+</td>
+</tr>
+
+<tr ng-show="showDemographics">
+<td class="detailKey">Total Number of Households:</td>
+<td class="detailValue">{{ demographics.numHouseholds | number }}</td>
+</tr>
+
+<tr ng-show="showDemographics">
+<td class="detailKey">Percent of Households With Families:</td>
+<td class="detailValue">{{ demographics.pctFamilyHouseholds }}%</td>
+</tr>
+
+<tr ng-show="showDemographics">
+<td class="detailKey">Average Family Size:</td>
+<td class="detailValue">{{ demographics.avgFamSize | number }}</td>
+</tr>
+
+<tr ng-show="showDemographics">
+<td class="detailKey">Median Earnings:</td>
+<td class="detailValue">{{ demographics.medianEarnings | currency }}</td>
+</tr>
+
+</table>
